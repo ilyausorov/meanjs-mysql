@@ -1,0 +1,15 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.article.title}}</h1>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span>{{vm.article.createdAt | date:'mediumDate'}}</span>
+      by
+      <span ng-if="vm.article.User">{{vm.article.User.displayName}}</span>
+      <span ng-if="!vm.article.User">Unkown User</span>
+    </em>
+  </small>
+  <p class="lead">{{vm.article.content}}</p>
+</section>

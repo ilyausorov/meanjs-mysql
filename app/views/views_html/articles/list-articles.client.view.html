@@ -1,0 +1,23 @@
+<section>
+  <div class="page-header">
+    <h1>Articles</h1>
+  </div>
+  <div class="list-group">	  
+    <a ng-repeat="article in vm.articles" ui-sref="articles.view({ articleId: article.id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span>{{article.created | date:'mediumDate'}}</span>
+        by
+        <span ng-if="article.User">{{article.User.displayName}}</span>
+        <span ng-if="!article.User">Unknown User</span>
+      </small>
+      <h4 class="list-group-item-heading">{{article.title}}</h4>
+      <p class="list-group-item-text">{{article.content}}</p>
+    </a>
+  </div>
+  
+  <div ng-if="!vm.articles.length">
+  No articles found.
+  </div>
+  
+</section>
